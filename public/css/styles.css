@@ -287,6 +287,75 @@ section { padding: 3.5rem 0; position: relative; }
 .trust-shield { width: 14px; height: 14px; background: #DCFCE7; border-radius: 3px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .trust-shield::after { content: ''; width: 6px; height: 4px; border-left: 1.5px solid #16A34A; border-bottom: 1.5px solid #16A34A; transform: rotate(-45deg) translateY(-1px); }
 
+/* ── Partners Marquee ── */
+.section-partners {
+  background: transparent !important;
+  overflow: hidden;
+}
+
+.partners-marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 1rem 0 0.5rem;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+}
+
+.partners-track {
+  display: flex;
+  gap: 2.5rem;
+  width: max-content;
+  animation: marqueeScroll 20s linear infinite;
+}
+
+.partners-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.partner-logo-card {
+  flex-shrink: 0;
+  width: 180px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 8px 24px -8px rgba(0,0,0,0.04);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+}
+
+.partner-logo-card:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 16px 36px -8px rgba(0,0,0,0.1);
+  border-color: rgba(249, 115, 22, 0.25);
+}
+
+.partner-logo-card img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+  filter: grayscale(40%);
+  opacity: 0.85;
+  transition: filter 0.4s ease, opacity 0.4s ease;
+}
+
+.partner-logo-card:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
 /* ── Footer ── */
 footer { background: #0F172A; color: rgba(255,255,255,0.7); text-align: center; padding: 4rem 1.5rem 3rem; font-family: 'Inter', sans-serif; }
 .footer-logo { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; letter-spacing: -1px; }
