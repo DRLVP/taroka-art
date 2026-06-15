@@ -77,11 +77,6 @@ const MAX_RETRIES = 5;
 
 async function connectMongo(attempt = 1) {
   let uri = process.env.MONGO_URI;
-  if (uri && !uri.includes('mongodb.net/')) {
-    uri = uri.replace('mongodb.net', 'mongodb.net/taroka');
-  } else if (uri && uri.endsWith('mongodb.net/')) {
-    uri += 'taroka';
-  }
   try {
     dns.setServers(['8.8.8.8', '8.8.4.4', '1.1.1.1']);
     console.log('🔧  Using public DNS servers for MongoDB SRV resolution');
